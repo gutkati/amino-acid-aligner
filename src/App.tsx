@@ -21,7 +21,9 @@ function App() {
                 seq2={seq2}
                 onSubmitAlign={changeSubmitAlign}
             />
-            <AlignmentDisplay />
+            <AlignmentDisplay
+                seq1={seq1}
+                seq2={seq2}/>
         </Container>
     );
 }

@@ -55,7 +55,9 @@ const AlignForm: React.FC<AlignFormProps> = ({seq1, seq2, onSubmitAlign}) => {
                         placeholder='VLSPADKTNIKASWEKIGSHG'
                         {...register('seq1', {
                             required: 'Обязательное поле',
-                            validate: validateSequence,
+                            validate: {
+                                format: validateSequence,
+                            }
                         })}
                     />
                     <FormErrorMessage>{errors.seq1?.message}</FormErrorMessage>
