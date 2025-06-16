@@ -8,7 +8,6 @@ if (!container) throw new Error('Root element not found');
 
 const root = ReactDOM.createRoot(container);
 
-// 3. Оборачивание приложения в ChakraProvider
 root.render(
   <React.StrictMode>
     <ChakraProvider>

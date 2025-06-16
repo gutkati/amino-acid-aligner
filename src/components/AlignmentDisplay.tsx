@@ -78,45 +78,6 @@ const AlignmentDisplay: React.FC<AlignDisplayProps> = ({seq1, seq2}) => {
             >
                 {items}
             </SimpleGrid>
-            {/*<Wrap mt={4} maxW="100%">*/}
-            {/*    <WrapItem display="flex" flexWrap="wrap">*/}
-            {/*        {*/}
-            {/*            seq1.split('').map((char, i) => (*/}
-            {/*                <Text*/}
-            {/*                    as='span'*/}
-            {/*                    key={i}*/}
-            {/*                    bg={AMINO_COLORS[char] || 'transparent'}*/}
-            {/*                    px={1}*/}
-            {/*                    mx={0.5}*/}
-            {/*                    borderRadius='sm'*/}
-            {/*                    minW="ch" // ширина символа*/}
-            {/*                    textAlign="center"*/}
-            {/*                    display="inline-block"*/}
-            {/*                >{char}</Text>*/}
-            {/*            ))*/}
-            {/*        }*/}
-
-            {/*    </WrapItem>*/}
-            {/*</Wrap>*/}
-
-            {/*<Wrap mt={4} maxW="100%">*/}
-            {/*    <WrapItem display="flex" flexWrap="wrap">*/}
-            {/*        {seq2.split('').map((char, i) => (*/}
-            {/*            <Text*/}
-            {/*                as='span'*/}
-            {/*                key={i}*/}
-            {/*                bg={char !== seq1[i] ? AMINO_COLORS[char] : "transparent"}*/}
-            {/*                px={1}*/}
-            {/*                mx={0.5}*/}
-            {/*                borderRadius='sm'*/}
-            {/*                minW="ch" // ширина символа*/}
-            {/*                textAlign="center"*/}
-            {/*                display="inline-block"*/}
-            {/*            >{char}</Text>*/}
-            {/*        ))}*/}
-
-            {/*    </WrapItem>*/}
-            {/*</Wrap>*/}
         </Box>
     );
 };
