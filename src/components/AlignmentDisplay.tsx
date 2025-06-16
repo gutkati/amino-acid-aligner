@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Text, SimpleGrid} from '@chakra-ui/react';
+import {Box, Text, SimpleGrid, useToast} from '@chakra-ui/react';
 import {AMINO_COLORS} from '../constants/colors';
 
 interface AlignDisplayProps {
@@ -11,9 +11,29 @@ const AlignmentDisplay: React.FC<AlignDisplayProps> = ({seq1, seq2}) => {
     const length = Math.min(seq1.length, seq2.length)
     const items = []
 
+    const toast = useToast();
+
+    const handleMouseUp = () => {
+        const selection = window.getSelection();
+        const selectedText = selection?.toString().trim();
+
+        if (selectedText && selectedText.length > 0) {
+            navigator.clipboard.writeText(selectedText).then(() => {
+                toast({
+                    title: 'Скопировано',
+                    description: `Выделенная последовательность скопирована.`,
+                    status: 'success',
+                    duration: 1000,
+                    isClosable: false,
+                    position: 'top',
+                });
+            });
+        }
+    };
+
     for (let i = 0; i < length; i++) {
         items.push(
-            <Box key={`pair-${i}`} textAlign="center" >
+            <Box key={`pair-${i}`} textAlign="center">
                 <Text
                     bg={AMINO_COLORS[seq1[i]] || 'transparent'}
                     px={1}
@@ -48,6 +68,7 @@ const AlignmentDisplay: React.FC<AlignDisplayProps> = ({seq1, seq2}) => {
             maxW='600px'
             mx='auto'
             p={4}
+            onMouseUp={handleMouseUp}
         >
             <SimpleGrid
                 columns={{base: 10, sm: 16, md: 20}}
